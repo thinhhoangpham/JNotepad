@@ -17,8 +17,8 @@ public class NotepadGUI extends JFrame implements WindowListener {
 
         // setup file
         file = new File("newfile");
-        fileName = file.getName();
-        setTitle("JNotepad - " + fileName);
+        //fileName = file.getName();
+        setTitle("JNotepad - " + file.getName());
 
         //setup GUI
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
@@ -75,7 +75,7 @@ public class NotepadGUI extends JFrame implements WindowListener {
     }
 
     private Menu addFormatMenu() {
-        Menu formatMenu = new Menu("Format");
+        Menu formatMenu = new Menu("Formalet");
 
         // add menu items
         formatMenu.add(addWordWrapMenuItem());
@@ -214,6 +214,7 @@ public class NotepadGUI extends JFrame implements WindowListener {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (dir == null && fileName == null) {
+                    fileName = file.getName();
                     saveAs(textArea.getText());
                 }
                 else {
